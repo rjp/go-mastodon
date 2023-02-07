@@ -233,6 +233,7 @@ type Toot struct {
 	Language    string     `json:"language"`
 	ScheduledAt *time.Time `json:"scheduled_at,omitempty"`
 	Poll        *TootPoll  `json:"poll"`
+	CreatedAt   *time.Time `json:"created_at,omitempty"`
 }
 
 // TootPoll holds information for creating a poll in Toot.

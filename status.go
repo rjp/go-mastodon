@@ -422,7 +422,12 @@ func (c *Client) postStatus(ctx context.Context, toot *Toot, update bool, update
 	if toot.SpoilerText != "" {
 		params.Set("spoiler_text", toot.SpoilerText)
 	}
-
+	if toot.CreatedAt != nil {
+		s := toot.CreatedAt.Format(time.RFC3339)
+		if s != "" {
+			params.Set("backdated", s)
+		}
+	}
 	var status Status
 	var err error
 	if !update {
